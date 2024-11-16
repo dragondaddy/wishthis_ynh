@@ -24,18 +24,19 @@ ynh_setup_source --dest_dir="$install_dir"
 #=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
-ynh_script_progression "Adding $app's configuration files..."
+#WIP : hopefully we can do this in a near future
+#ynh_script_progression "Adding $app's configuration files..."
 
-ynh_config_add --template="config-sample.php" --destination="$install_dir/src/config/config.php"
+#ynh_config_add --template="config-sample.php" --destination="$install_dir/src/config/config.php"
 
 #=================================================
 # PROVISION DATABASE
 #=================================================
-ynh_script_progression "Provisionning database..."
+#ynh_script_progression "Provisionning database..."
 
-ynh_config_add --template="schema_mysql.sql" --destination="$install_dir/src/config/mysql.sql"
+#ynh_config_add --template="schema_mysql.sql" --destination="$install_dir/src/config/mysql.sql"
 
-ynh_mysql_db_shell < $install_dir/src/config/mysql.sql
+#ynh_mysql_db_shell < $install_dir/src/sql/mysql.sql
 
 #=================================================
 # SYSTEM CONFIGURATION
