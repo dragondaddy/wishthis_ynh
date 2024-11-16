@@ -26,7 +26,7 @@ ynh_setup_source --dest_dir="$install_dir"
 #=================================================
 ynh_script_progression "Adding $app's configuration files..."
 
-ynh_config_add --template="some_config_file" --destination="$install_dir/some_config_file"
+ynh_config_add --template="config-sample.php" --destination="$install_dir/src/config/config.php"
 
 #=================================================
 # SYSTEM CONFIGURATION
@@ -37,7 +37,7 @@ ynh_config_add_phpfpm
 
 ynh_config_add_nginx
 
-ynh_config_add_fail2ban --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
+ynh_config_add_fail2ban --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex"
 
 #=================================================
 # END OF SCRIPT
