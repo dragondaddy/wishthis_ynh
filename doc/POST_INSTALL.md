@@ -1,7 +1,8 @@
-This is a dummy disclaimer to display after the install
+The installation is almost finished!
 
 The app url is <https://__DOMAIN____PATH__>
 
-The app install dir is `__INSTALL_DIR__`
+Visit the website right now and finish the installation. You will need to provide some database information:
+- database name and database user: **__APP__**
+- database password: **__DB_PWD__**
 
-The app id is `__ID__`
