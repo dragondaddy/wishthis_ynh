@@ -1,0 +1,71 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "wishthis"
+name = "Wishthis"
+description.en = "Wishlist platform to create, manage and view your wishes for any kind of occasion"
+description.fr = "Plate-forme de liste d'envies (*wishlist* en anglais) pour créer, gérer et visualiser vos envies pour tout type d'occasion"
+
+version = "1.20~ynh1"
+
+maintainers = ["Papa Dragon"]
+
+[upstream]
+license = " AGPL-3.0-only"
+website = "https://wishthis.online"
+admindoc = "https://github.com/wishthis/wishthis/blob/develop/README.md"
+code = "https://github.com/wishthis/wishthis"
+fund = "https://github.com/sponsors/grandeljay"
+
+[integration]
+yunohost = ">= 12.0.6"
+helpers_version = "2.1"
+architectures = "all"
+multi_instance = true
+
+ldap = "false"
+sso = "false"
+
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+    [install.admin]
+    type = "user"
+
+    [install.password]
+    help.en = "Use the help field to add an information for the admin about this question."
+    help.fr = "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
+    type = "password"
+
+[resources]
+
+    [resources.sources]
+
+        [resources.sources.main]
+        url = "https://github.com/wishthis/wishthis/archive/refs/tags/v1.2.0.tar.gz"
+        sha256 = "806e187546769d237791ad78b600799d10b6e62e205104cb0756d275ad4041d0"
+        autoupdate.strategy = "latest_github_release"
+        autoupdate.version_regex = "^v(.*)$"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "mariadb-server, php8.3, php8.3-intl, php8.3-mysql"
+
+    [resources.database]
+    type = "mysql"
