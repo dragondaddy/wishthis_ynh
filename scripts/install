@@ -29,6 +29,15 @@ ynh_script_progression "Adding $app's configuration files..."
 ynh_config_add --template="config-sample.php" --destination="$install_dir/src/config/config.php"
 
 #=================================================
+# PROVISION DATABASE
+#=================================================
+ynh_script_progression "Provisionning database..."
+
+ynh_config_add --template="schema_mysql.sql" --destination="$install_dir/src/config/mysql.sql"
+
+ynh_mysql_db_shell < $install_dir/src/config/mysql.sql
+
+#=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
